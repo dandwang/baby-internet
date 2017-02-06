@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>sui</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" type="text/css" href="./css/sm.css">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./css/sm-extend.css"> -->
+</head>
+<body>
+    <div class="page-group">
+        <div class="page " id='item-content-null'>
+            <header class="bar bar-nav">
+                <a class="icon icon-left pull-left"></a>
+                <a href='#baby-add' class="icon icon-menu pull-right"></a>
+                <h1 class="title">儿童上网管理</h1>
+            </header>
+            <div class="content is-null-sec">
+                <p class="tc null-tips"><img src="./images/error_logo.png">暂无儿童管理对象<br>请点击右上角添加</p>
+            </div>
+        </div>
+        <div class="page" id='baby-add'>
+            <header class="bar bar-nav">
+                <a class="icon icon-left pull-left back"></a>
+                <a href='#baby-device-manage' class="icon pull-right guild-word">下一步</a>
+                <h1 class="title">输入儿童信息</h1>
+            </header>
+            <div class="content">
+                <div  class="baby-head-set boy" id='baby-add-head'>
+                
+                </div>
+                <div class="list-block">
+                  <ul>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                          <div class="item-title label">姓名</div>
+                          <div class="item-input">
+                            <input type="text" placeholder="请填写宝贝名字">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                        <div class="item-inner">
+                          <div class="item-title label">性别</div>
+                          <div class="item-input">
+                            <select>
+                              <option>男孩</option>
+                              <option>女孩</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                        <div class="item-inner">
+                          <div class="item-title label">年级</div>
+                          <div class="item-input">
+                            <select>
+                              <option>学前儿童</option>
+                              <option>一年级</option>
+                              <option>二年级</option>
+                              <option>三年级</option>
+                              <option>四年级</option>
+                              <option>五年级</option>
+                              <option>六年级</option>
+                              <option>七年级</option>
+                              <option>八年级</option>
+                              <option>九年级</option>
+                              <option>高中以上</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+
+                    </ul>
+                </div>
+                <p class="baby-add-p">准确的选择儿童学年有助于获得更准确的上网分析与推荐</p>
+            </div>
+        
+        </div>
+        <div class="page " id='baby-device-manage'>
+            <header class="bar bar-nav">
+                <a class="icon icon-left pull-left back"></a>
+                <a href="#sec-app-use" class="icon pull-right guild-word">保存</a>
+                <h1 class="title">选择儿童上网终端</h1>
+            </header>
+            <div class="content">
+                <div class="list-block media-list">
+                    <ul>
+                        <li>
+                          <label class="label-checkbox item-content">
+                            <div class="device-icon icon-mob"></div>
+                            <div class="item-inner">
+                              
+                              <div class="item-dev-title">我的手机</div>
+                            </div>
+                             <input type="checkbox" name="checkbox">
+                            <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="label-checkbox item-content">
+                            <div class="device-icon icon-mob"></div>
+                            <div class="item-inner">
+                              
+                              <div class="item-dev-title">媳妇的手机</div>
+                            </div>
+                             <input type="checkbox" name="checkbox">
+                            <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                          </label>
+                        </li>
+
+                       
+                      </ul>
+                    </div>
+            </div>
+        </div>
+        <div class="page " id='sec-app-use'>
+            <header class="bar bar-nav">
+                <a class="icon icon-left pull-left back"></a>
+                <a class="icon pull-right icon-menu"></a>
+                <h1 class="title">儿童上网管理</h1>
+            </header>
+            <nav class="bar bottom-bar bar-tab">
+                <a class="tab-item external active" >
+                  <span class="icon icon-d use-a"></span>
+                  <span class="tab-label">使用</span>
+                </a>
+                <a class="tab-item external">
+                  <span class="icon icon-d analysis"></span>
+                  <span class="tab-label">分析</span>
+                  <!-- <span class="badge">2</span> -->
+                </a>
+                <a class="tab-item external" >
+                  <span class="icon icon-d manage"></span>
+                  <span class="tab-label">管理</span>
+                </a>
+            </nav>
+            <div class="content">
+                <div class="header-bg app-use-header">
+                    <div class="header-content app-use-header-warp flex" data-flex-direction="row">
+                        <div class="flex use-time-sec tc">
+                            <p class="use-time myTimeFontTxt">02:13</p>
+                        </div>
+                        <div class="use-info-sec">
+                        <div class="flex use-limit-time">
+                            <div>
+                                <p>未限制上网时间：</p>
+                                <a href="#" class="linearBtn limitTimeBtn colff fTop">限制时长</a>
+                            </div>
+                        </div>
+                        <div class="flex using-device">
+                            <div>
+                                <p>正在使用：</p>
+                                <div class="using-device-list">
+                                    <a class="item-device pic-mob"></a>
+                                    <a class="item-device pic-pc"></a>
+                                    <a class="item-device pic-iPad"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="use-info-title colff">使用情况</div>
+                <div class="use-app-list mark-app-type">
+                    <ul>
+                        <li class="clearfix app-sj">
+                            <span class="use-app-info col99 fl-rg app-mob">10分钟前</span>
+                            <img src="./images/weixin.png">
+                            <div class="use-app-content">
+                                <h3>微信</h3>
+                                <p class="txt-ov col66">有85%的同年龄层儿童也在用</p>
+                            </div>
+                        </li>
+                        <li class="clearfix app-game">
+                            <span class="use-app-info col99 fl-rg app-iPad">9:23</span>
+                            <img src="./images/weixin.png">
+                            <div class="use-app-content">
+                                <h3>微信</h3>
+                                <p class="txt-ov col66">有85%的同年龄层儿童也在用</p>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page" id='sec-app-analysis'>
+            <header class="bar bar-nav">
+                <a class="icon icon-left pull-left back"></a>
+                <a href='#baby-device-manage' class="icon pull-right guild-word">详细</a>
+                <h1 class="title">上网分析</h1>
+            </header>
+            div
+        </div>
+        <div class="page page-current" id='sec-app-manage'>
+            <header class="bar bar-nav">
+                <a class="icon icon-left pull-left back"></a>
+                <h1 class="title">儿童上网管理</h1>
+            </header>
+            <nav class="bar bottom-bar bar-tab">
+                <a class="tab-item external" >
+                  <span class="icon icon-d use"></span>
+                  <span class="tab-label">使用</span>
+                </a>
+                <a class="tab-item external">
+                  <span class="icon icon-d analysis"></span>
+                  <span class="tab-label">分析</span>
+                  <!-- <span class="badge">2</span> -->
+                </a>
+                <a class="tab-item external active">
+                  <span class="icon icon-d manage-a"></span>
+                  <span class="tab-label">管理</span>
+                </a>
+            </nav>
+            
+        </div>
+</div>
+
+    <script type='text/javascript' src='./js/zepto.js' charset='utf-8'></script>
+    <script type='text/javascript' src='./js/sm.js' charset='utf-8'></script>
+    <script type='text/javascript' src='./js/index.js' charset='utf-8'></script>
+    <script type='text/javascript'>
+       
+      
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+        *{
+            padding:0;
+            margin:0;
+            cursor: pointer;
+            font-family:"微软雅黑" ;
+        }
+        .content{
+            border: 1px solid #ddd;
+            margin:20px;
+            width: 500px;
+            height: 400px;
+        }
+        .canHover{
+            background: rgba(0,0,0,.1);
+            position: absolute;
+            display: none;
+        }
+        .tooltip{
+            position: absolute;
+            background: rgba(0,0,0,.5);
+            color: #fff;
+            display: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+        }
+        .tooltip-color{
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="content"></div>
+    </body>
+        <script src="http://code.jquery.com/jquery-2.1.0.js"></script>
+    <script type="text/javascript">
+        var page={W:null,H:null,top:10,left:30,right:10,bottom:30,w:null,h:null,data:null,xText:null,color:['#7CB5EC'],yNum:10,c:null,ctx:null,Ymargin:null,Xmargin:null,Xlen:null,init:function(obj,option){if(!this.handle(obj,option)){return false}this.creatContent(obj);this.axisLine();this.axisTick();this.dataHover()},handle:function(obj,option){let self=this;if(!option.data){obj.html('暂无数据');return false}for(let i in option){self[i]=option[i]}let maxLen=this.data.getMax().toString().length;if(maxLen>3){this.left=(maxLen+1)*10}return true},creatContent:function(obj){let self=this,html='';self.W=obj.width();self.H=obj.height();html+=`<canvas class="can" width="${self.W }" height="${self.H }"></canvas>
+                                 <div class="canHover"></div>
+                                 <div class="tooltip"></div>`;obj.html(html);self.c=obj.find('.can')[0];self.ctx=this.c.getContext('2d');self.w=this.W-this.left-this.right;self.h=this.H-this.top-this.bottom},axisLine:function(){let self=this;self.ctx.moveTo(self.left,self.top);self.ctx.lineTo(self.left,self.H-self.bottom);self.ctx.lineTo(self.W-self.right,self.H-self.bottom);self.ctx.stroke()},axisTick:function(){let self=this;self.Ymargin=self.getYMargin(),self.Xlen=self.data.length,self.Xmargin=self.w/self.Xlen;$('.canHover').css({"width":self.Xmargin,"height":self.h});for(let i=0,k=0;i<self.Xlen;i++,k++){if(i<self.Xlen-1){self.ctx.moveTo(self.Xmargin*(i+1)+self.left,self.H-self.bottom);self.ctx.lineTo(self.Xmargin*(i+1)+self.left,self.H-self.bottom-10);self.ctx.stroke()}if(self.xText!=null){self.ctx.font="14px 微软雅黑";self.ctx.fillStyle="#333";self.ctx.fillText(self.xText[i],self.Xmargin*(i+1)+self.left-self.Xmargin/2-15,self.H-self.bottom+20)}k=k==self.color.length?0:k;self.ctx.fillStyle=self.color[k];self.ctx.fillRect(self.Xmargin*(i+1)+self.left-self.Xmargin/2-15,(self.h+self.top)-(self.h/(self.yNum*self.Ymargin)*self.data[i]),30,self.h/(self.yNum*self.Ymargin)*self.data[i])}for(let i=0;i<self.yNum+1;i+=1){self.ctx.strokeStyle="#ddd";self.ctx.moveTo(self.left,self.h/self.yNum*i+self.top);self.ctx.lineTo(self.left+self.yNum,self.h/self.yNum*i+self.top);self.ctx.stroke();if(i<self.yNum){let textMargin=self.data.getMax().toString().length*self.yNum;self.ctx.fillStyle="#333";self.ctx.font="14px 微软雅黑";self.ctx.fillText(self.Ymargin*(self.yNum-i),self.left-textMargin,self.h/self.yNum*i+self.top+5)}}},dataHover:function(){let self=this;$(self.c).on('mousemove',function(event){sessionStorage.mouseIndex=null});$(self.c).on('mousemove',function(event){let e=event||window.event,x=e.pageX,y=e.pageY,bbox=self.c.getBoundingClientRect(),left=x-bbox.left,top=y-bbox.top,index=parseInt((left-self.left)/(self.w/self.data.length));self.tooltip(index);if(sessionStorage.mouseIndex==index||index>=self.data.length){return false}sessionStorage.mouseIndex=index;$('.canHover').css({"top":bbox.top+self.top,"left":index*self.Xmargin+self.left+bbox.left,"display":"block"})})},tooltip:function(index){let self=this;if(index>self.data.length-1){index=self.data.length-1}$('.canHover').on('mousemove',function(event){let e=event||window.event,x=e.pageX,y=e.pageY,n=index;n=index>self.color.length-1?index%self.color.length:n;let text=self.xText?self.xText[index]:"-";let html=`
+                        <span class="tooltip-color" style="background:${self.color[n]}"></span>
+                        ${ text }
+                        </br>
+                        ${self.data[index]}
+                    `;$('.tooltip').html(html).css({"top":y+10,"left":x+10,"display":"block"})})},getYMargin:function(){let self=this,margin=Math.ceil(self.data.getMax()/self.yNum),add=10-(margin%10);margin=Number(margin+add);return margin}};$.fn.extend({chart:function(option){page.init($(this),option);return this}});Array.prototype.getMax=function(){let max,tmp;for(var i=0;i<this.length-1;i+=1){tmp=this[i]>this[i+1]?this[i]:this[i+1];max=max>tmp?max:tmp}return max};
+    </script>
+    <script type="text/javascript">
+        var option = {
+            data: [256, 34, 345, 333, 66, 23],      //数据
+            xText: ["数据1", "数据2", "数据3", "数据4", "数据5", "数据6"],      //X刻度标识
+            color: ['#7CB5EC', '#90ED7D', '#F7A35C', '#F15C80'],
+        }
+        $('.content').chart(option);
+    </script>
+</html>

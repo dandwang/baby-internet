@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>sui</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" type="text/css" href="./css/sm.css">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./css/sm-extend.css"> -->
+</head>
+<body>
+    <div class="page-group">
+        <div class="page page-current" id='item-content-null'>
+            <header class="bar bar-nav">
+                <a class="icon icon-left pull-left"></a>
+                <a href='#baby-add' class="icon icon-menu pull-right"></a>
+                <h1 class="title">儿童上网管理</h1>
+            </header>
+            <div class="content is-null-sec">
+                <p class="tc null-tips"><img src="./images/error_logo.png">暂无儿童管理对象<br>请点击右上角添加</p>
+            </div>
+        </div>
+        <div class="page " id='baby-add'>
+            <header class="bar bar-nav">
+                <a class="icon icon-left pull-left back"></a>
+                <a href='#baby-device-manage' class="icon pull-right guild-word">下一步</a>
+                <h1 class="title">输入儿童信息</h1>
+            </header>
+            <div class="content">
+                <div  class="baby-head-set boy" id='baby-add-head'>
+                
+                </div>
+                <div class="list-block">
+                  <ul>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-name"></i></div>
+                        <div class="item-inner">
+                          <div class="item-title label">姓名</div>
+                          <div class="item-input">
+                            <input type="text" placeholder="请填写宝贝名字">
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                        <div class="item-inner">
+                          <div class="item-title label">性别</div>
+                          <div class="item-input">
+                            <select>
+                              <option>男孩</option>
+                              <option>女孩</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content">
+                        <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                        <div class="item-inner">
+                          <div class="item-title label">年级</div>
+                          <div class="item-input">
+                            <select>
+                              <option>学前儿童</option>
+                              <option>一年级</option>
+                              <option>二年级</option>
+                              <option>三年级</option>
+                              <option>四年级</option>
+                              <option>五年级</option>
+                              <option>六年级</option>
+                              <option>七年级</option>
+                              <option>八年级</option>
+                              <option>九年级</option>
+                              <option>高中以上</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+
+                    </ul>
+                </div>
+                <p class="baby-add-p">准确的选择儿童学年有助于获得更准确的上网分析与推荐</p>
+            </div>
+        
+        </div>
+        <div class="page page-current " id='baby-device-manage'>
+            <header class="bar bar-nav">
+                <a class="icon icon-left pull-left back"></a>
+                <a href="#sec-app-use" class="icon pull-right guild-word">保存</a>
+                <h1 class="title">选择儿童上网终端</h1>
+            </header>
+            <div class="content">
+                <div class="list-block media-list">
+                    <ul>
+                        <li>
+                          <label class="label-checkbox item-content">
+                            <div class="device-icon icon-mob"></div>
+                            <div class="item-inner">
+                              
+                              <div class="item-dev-title">我的手机</div>
+                            </div>
+                             <input type="checkbox" name="checkbox">
+                            <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="label-checkbox item-content">
+                            <div class="device-icon icon-mob"></div>
+                            <div class="item-inner">
+                              
+                              <div class="item-dev-title">媳妇的手机</div>
+                            </div>
+                             <input type="checkbox" name="checkbox">
+                            <div class="item-media"><i class="icon icon-form-checkbox"></i></div>
+                          </label>
+                        </li>
+
+                       
+                      </ul>
+                    </div>
+            </div>
+        </div>
+        <div class="page" id='sec-app-use'>
+            <header class="bar bar-nav">
+                <a class="icon icon-left pull-left back"></a>
+                <a class="icon pull-right icon-menu open-panel" data-panel='#main-right-list'></a>
+                <h1 class="title" id='main-title'>儿童上网管理</h1>
+            </header>
+            <nav class="bar bottom-bar bar-tab">
+                <a class="tab-item external active" id='bottom-bar-use'>
+                  <span class="icon icon-d use-a"></span>
+                  <span class="tab-label">使用</span>
+                </a>
+                <a class="tab-item external" id='bottom-bar-analysis'>
+                  <span class="icon icon-d analysis"></span>
+                  <span class="tab-label">分析</span>
+                  <!-- <span class="badge">2</span> -->
+                </a>
+                <a class="tab-item external" id='bottom-bar-manage'>
+                  <span class="icon icon-d manage"></span>
+                  <span class="tab-label">管理</span>
+                </a>
+            </nav>
+            <div class="content" id='main_page_content'>
+                <div id='main_page_1' class="swipe-box">
+                    <div id="main_page_1_top">
+                    <div class="header-bg app-use-header">
+                        <div class="app-use-header-warp flex" data-flex-direction="row">
+                            <div class="flex use-time-sec tc">
+                                <p class="use-time myTimeFontTxt">02:13</p>
+                            </div>
+                            <div class="use-info-sec">
+                            <div class="flex use-limit-time">
+                                <div class="no-limit hide">
+                                    <p>今日未限制上网时间</p>
+                                    <a href="#" class="linearBtn limitTimeBtn colff fTop">去设置</a>
+                                </div>
+                                <div class="now-no-limit hide">
+                                    当前时段可上网
+                                </div>
+                                <div class="now-limit hide">
+                                    当前时段不可上网
+                                </div>
+                                <div class="limit-lists ">
+                                    <ul>
+                                        <li>
+                                            <span class="limit-list-png pic-mob"></span>
+                                            <span class="limit-list-time">23m</span>
+                                        </li>
+                                        <li>
+                                            <span class="limit-list-png pic-pc"></span>
+                                            <span class="limit-list-time">23m</span>
+                                        </li>
+                                        <li>
+                                            <span class="limit-list-png pic-iPad"></span>
+                                            <span class="limit-list-time">23m</span>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <div class="flex using-device">
+                                <div>
+                                <p>正在使用：</p>
+                                <div class="using-device-list">
+                                    <a class="item-device pic-mob"></a>
+                                    <a class="item-device pic-pc"></a>
+                                    <a class="item-device pic-iPad"></a>
+                                </div>
+                                </div>    
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="use-info-title colff">使用情况</div>
+                    </div>
+                    <div class="use-app-list mark-app-type" id='use-app-list'>
+                        <ul>
+                            <li class="clearfix app-sj">
+                                <span class="use-app-info col99 fl-rg app-mob">10分钟前</span>
+                                <img src="./images/weixin.png">
+                                <div class="use-app-content">
+                                    <h3>微信</h3>
+                                    <p class="txt-ov col66">有85%的同年龄层儿童也在用</p>
+                                </div>
+                            </li>
+                            <li class="clearfix app-game">
+                                <span class="use-app-info col99 fl-rg app-iPad">9:23</span>
+                                <img src="./images/weixin.png">
+                                <div class="use-app-content">
+                                    <h3>微信</h3>
+                                    <p class="txt-ov col66">有85%的同年龄层儿童也在用</p>
+                                </div>
+                            </li>
+                           
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div id='main_page_2' class="swipe-box">
+                    <div class="buttons-tab">
+                        <a  class="tab-link active button">日</a>
+                        <a  class="tab-link button">周</a>
+                        <a  class="tab-link button">月</a>
+                    </div>
+                    <div class="analysis-header">
+                        <div class="time-tip">9月1日 星期四</div>
+                        <div class="analysis-content flex">
+                            <div class="pre-page pos-re">
+                               <a href="#" class="pre-btn flip-btn  tc" >前一天</a>
+                            </div>
+                            <div>
+                                <canvas id='analysis-canvas' width="150" height="150">
+                                    
+                                </canvas>
+                            </div>
+                            <div class="next-page pos-re">
+                                <a href="#" class="next-btn flip-btn  tc">后一天</a>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="app-analysis-result flex colff tc lh-2 fs-12" data-flex-direction="row">
+                        <li class="flex-box-autoFix">
+                            <i class="analysis-class-pic game-bg"></i>
+                            <p class="opc7">游戏 45%</p>
+                        </li>
+                        <li class="flex-box-autoFix">
+                            <i class="analysis-class-pic video-bg"></i>
+                            <p class="opc7">视频 45%</p>
+                        </li>
+                        <li class="flex-box-autoFix">
+                            <i class="analysis-class-pic social-bg"></i>
+                            <p class="opc7">社交 45%</p>
+                        </li>
+                        <li class="flex-box-autoFix">
+                            <i class="analysis-class-pic read-bg"></i>
+                            <p class="opc7">阅读 45%</p>
+                        </li>
+                        <li class="flex-box-autoFix">
+                            <i class="analysis-class-pic others-bg"></i>
+                            <p class="opc7">其他 45%</p>
+                        </li>
+                    </ul>
+                    <dl class="frm-dl analysis-result-list">
+                        <dd class="icon-list-arrow flex">
+                            <div class="analysis-list-logo game-bg game-pic"></div>
+                            <div class="list-content flex-box-autoFix">
+                                <h3>游戏<span>| 高于同龄人</span></h3>
+                                <p class="col66 txt-ov-normal">使用：123小时12分 使用最多：部落冲突</p>
+                            </div>
+                        </dd>
+                        <dd class="icon-list-arrow flex">
+                            <div class="analysis-list-logo video-bg video-pic"></div>
+                            <div class="list-content flex-box-autoFix">
+                                <h3>视频<span>| 低于同龄人</span></h3>
+                                <p class="col66 txt-ov-normal">使用：123小时12分 使用最多：部落冲突</p>
+                            </div>
+                        </dd>
+                        <dd class="icon-list-arrow flex">
+                            <div class="analysis-list-logo social-bg social-pic"></div>
+                            <div class="list-content flex-box-autoFix">
+                                <h3>社交<span>| 正常于同龄人</span></h3>
+                                <p class="col66 txt-ov-normal">使用：123小时12分 使用最多：部落冲突</p>
+                            </div>
+                        </dd>
+                        <dd class="icon-list-arrow flex">
+                            <div class="analysis-list-logo read-bg read-pic"></div>
+                            <div class="list-content flex-box-autoFix">
+                                <h3>阅读<span>| 高于同龄人</span></h3>
+                                <p class="col66 txt-ov-normal">使用：123小时12分 使用最多：部落冲突</p>
+                            </div>
+                        </dd>
+                        <dd class="icon-list-arrow flex">
+                            <div class="analysis-list-logo others-bg others-pic"></div>
+                            <div class="list-content flex-box-autoFix">
+                                <h3>其他<span>| 高于同龄人</span></h3>
+                                <p class="col66 txt-ov-normal">使用：123小时12分 使用最多：部落冲突</p>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                <div id='main_page_3' class="swipe-box">
+                    <div class="" id='baby-main-manage'>
+                        <div class="baby-head boy">
+                        </div>
+                        <div class="baby-info">
+                            宝宝名字
+                        </div>
+                        <div class="baby-info class_color">
+                            一年级
+                        </div>
+                    </div>
+                    <dl class="frm-dl">
+                        <dd class="icon-list-arrow icon-pic icon-app-manage">应用管理</dd>
+                        <dd class="icon-list-arrow icon-pic icon-time-manage" id='time-manager-btn'>时间管理</dd>
+                        <dd class="icon-list-arrow icon-pic icon-blank" id='black-list-btn'>上面黑名单</dd>
+                    </dl>
+                    <dl class="frm-dl">
+                        <dd class="icon-list-arrow icon-pic icon-net-client" id='internet-device-btn'>上网终端</dd>
+                    </dl>
+                    <div class="item-list item-list-txt sec-fir-list tc hTop colBlue">切换账号</div>
+
+                    <div class="item-list item-list-txt tc colRed">删除账号</div>
+                </div>
+            </div>
+        </div>
+        <div class="page " id='sec-app-list'>
+            <header class="bar bar-nav">
+                <a class="icon icon-left pull-left back"></a>
+                <h1 class="title">应用管理</h1>
+            </header>
+            <div class="buttons-tab manage-title">
+                    <a class="tab-link active button">全部</a>
+                    <a class="tab-link button">学习</a>
+                    <a class="tab-link button">娱乐</a>
+                    <a class="tab-link button">社交</a>
+                    <a class="tab-link button">游戏</a>
+                    <a class="tab-link button">其他</a>
+            </div>
+            <div class="content" style="top:4.4rem;">
+                aa
+            </div>
+            
+        </div>
+        <div class="page " id='baby-time-list'>
+            <header class="bar bar-nav">
+                <a class="icon icon-left pull-left back"></a>
+                <a href='#baby-time-add' class="icon icon-menu pull-right"></a>
+                <h1 class="title">时间管理</h1>
+            </header>
+            <div class="content is-null-sec">
+                <p class="tc null-tips hide"><img src="./images/error_logo.png">当前未设置上网时间<br>请点击右上角添加</p>
+                <div class="list-block media-list">
+                      <ul>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                           <div class="item-inner">
+                              <div class="item-title-row">
+                                <div class="item-title">每台设备可上网4小时</div>
+                              </div>
+                              <div class="item-subtitle">9:00~21:00  周六 周日</div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="item-link item-content">
+                           <div class="item-inner">
+                              <div class="item-title-row">
+                                <div class="item-title">每台设备可上网4小时</div>
+                              </div>
+                              <div class="item-subtitle">9:00~21:00 周六 周日</div>
+                            </div>
+                          </a>
+                        </li>
+                        </ul>
+                    </div>
+            </div>
+
+        </div>
+        <div class="page" id='baby-time-add'>
+            <header class="bar bar-nav">
+                <a class="icon icon-left pull-left back"></a>
+                <a  class="icon pull-right guild-word">保存</a>
+                <h1 class="title">上网时间设置</h1>
+            </header>
+            <div class="content">
+                <div class="time-set-block">
+                    <h3>可上网时长</h3>
+                    <ul>
+                        <li>
+                            <span>每台设备的可上网时长</span>
+                            <span class="icon icon-right right"></span>
+                            <span class="right"><input type="text" placeholder="未设置" id='time-during' readonly/></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="time-set-block">
+                    <h3>可上网时段</h3>
+                    <ul>
+                        <li class="border-bottom">
+                            <span>开始时间</span>
+                            <span class="icon icon-right right"></span>
+                            <span class="right"><input type="text" placeholder="未设置" id='start-time' readonly/></span>
+                        </li>
+                        <li>
+                            <span>结束时间</span>
+                            <span class="icon icon-right right"></span>
+                            <span class="right"><input type="text" placeholder="未设置" id='end-time' readonly/></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="time-set-block">
+                    <h3>重复周期</h3>
+                    <div class="week-content">
+                        <div class="week-btn">周一</div>
+                        <div class="week-btn">周二</div>
+                        <div class="week-btn">周三</div>
+                        <div class="week-btn">周四</div>
+                        <div class="week-btn">周五</div>
+                        <div class="week-btn">周六</div>
+                        <div class="week-btn">周日</div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page" id='black-list'>
+            <header class="bar bar-nav">
+                <a class="icon icon-left pull-left back"></a>
+                <h1 class="title">黑名单</h1>
+                
+            </header>
+            <div class="content">
+                    <div class="buttons-tab">
+                        <a class="tab-link active button">未拉黑</a>
+                        <a class="tab-link button">已拉黑</a>
+                    </div>
+                    <div class="use-app-list mark-app-type" id=''>
+                        <ul>
+                            <li class="clearfix app-sj">
+                                <span class="list-action linearBtn">拉黑</span>
+                                <img src="./images/weixin.png">
+                                <div class="use-app-content">
+                                    <h3>微信</h3>
+                                    <p class="txt-ov col66">有85%的同年龄层儿童也在用</p>
+                                </div>
+                            </li>
+                            <li class="clearfix app-game">
+                                <span class="list-action linearBtn">拉黑</span>
+                                <img src="./images/weixin.png">
+                                <div class="use-app-content">
+                                    <h3>微信</h3>
+                                    <p class="txt-ov col66">有85%的同年龄层儿童也在用</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+        </div>
+        <div class="page" id='baby-device-remove'>
+            <header class="bar bar-nav">
+                <a class="icon icon-left pull-left back"></a>
+                <a href="#baby-device-manage" class="icon pull-right guild-word">添加</a>
+                <h1 class="title">编辑儿童上网终端</h1>
+            </header>
+            <div class="content">
+                <div class="list-block media-list">
+                    <ul>
+                        <li>
+                          <label class="label-checkbox item-content">
+                            <div class="device-icon icon-mob"></div>
+                            <div class="item-inner">
+                              
+                              <div class="item-dev-title">我的手机</div>
+                            </div>
+                             <input type="checkbox" name="checkbox">
+                            <div class="item-media"><span class="list-action linearBtn">移除</span></div>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="label-checkbox item-content">
+                            <div class="device-icon icon-mob"></div>
+                            <div class="item-inner">
+                              
+                              <div class="item-dev-title">媳妇的手机</div>
+                            </div>
+                             <input type="checkbox" name="checkbox">
+                            <div class="item-media"><span class="list-action linearBtn">移除</span></div>
+                          </label>
+                        </li>
+
+                       
+                      </ul>
+                    </div>
+            </div>
+        </div>
+        <div class="page" id='baby-list'>
+            <header class="bar bar-nav">
+                <a class="icon icon-left pull-left back"></a>
+                <a href="#baby-add" class="icon pull-right guild-word">添加</a>
+                <h1 class="title">儿童列表</h1>
+            </header>
+            <div class="content">
+                <div class="list-block media-list">
+                    <ul>
+                        <li>
+                          <label class="label-checkbox item-content">
+                            <div class="device-icon icon-mob"></div>
+                            <div class="item-inner">
+                              
+                              <div class="item-dev-title">我的手机</div>
+                            </div>
+                             <input type="checkbox" name="checkbox">
+                            <div class="item-media"><span class="list-action linearBtn">移除</span></div>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="label-checkbox item-content">
+                            <div class="device-icon icon-mob"></div>
+                            <div class="item-inner">
+                              
+                              <div class="item-dev-title">媳妇的手机</div>
+                            </div>
+                             <input type="checkbox" name="checkbox">
+                            <div class="item-media"><span class="list-action linearBtn">移除</span></div>
+                          </label>
+                        </li>
+
+                       
+                      </ul>
+                    </div>
+            </div>
+        </div>
+</div>
+    <div class="panel-overlay"></div>
+    <div class="panel panel-right panel-reveal" id='main-right-list'>
+      <div class="content-block">
+            <div class="panel_baby_list">
+                <ul>
+                    <li>宝贝1</li>
+                    <li>宝贝2</li>
+                </ul>
+            </div>
+            <div class="panel_add_baby">+添加儿童</div>
+
+      </div>
+    </div>
+
+    <script type='text/javascript' src='./js/zepto.js' charset='utf-8'></script>
+    <script type='text/javascript' src='./js/slip.js' charset='utf-8'></script>
+    <script type='text/javascript' src='./js/sm.js' charset='utf-8'></script>
+    <script type='text/javascript' src='./js/index.js' charset='utf-8'></script>
+    <script type='text/javascript'>
+       
+      
+    </script>
+</body>
+</html>
