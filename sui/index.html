@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="page-group">
-        <div class="page page-current" id='item-content-null'>
+        <div class="page " id='item-content-null'>
             <header class="bar bar-nav">
                 <a class="icon icon-left pull-left"></a>
                 <a href='#baby-add' class="icon icon-menu pull-right"></a>
@@ -91,7 +91,7 @@
             </div>
         
         </div>
-        <div class="page page-current " id='baby-device-manage'>
+        <div class="page " id='baby-device-manage'>
             <header class="bar bar-nav">
                 <a class="icon icon-left pull-left back"></a>
                 <a href="#sec-app-use" class="icon pull-right guild-word">保存</a>
@@ -128,7 +128,7 @@
                     </div>
             </div>
         </div>
-        <div class="page" id='sec-app-use'>
+        <div class="page " id='sec-app-use'>
             <header class="bar bar-nav">
                 <a class="icon icon-left pull-left back"></a>
                 <a class="icon pull-right icon-menu open-panel" data-panel='#main-right-list'></a>
@@ -155,7 +155,7 @@
                     <div class="header-bg app-use-header">
                         <div class="app-use-header-warp flex" data-flex-direction="row">
                             <div class="flex use-time-sec tc">
-                                <p class="use-time myTimeFontTxt">02:13</p>
+                                <p id='clock_show_data' class="use-time myTimeFontTxt">02:13</p>
                             </div>
                             <div class="use-info-sec">
                             <div class="flex use-limit-time">
@@ -321,15 +321,15 @@
                     </div>
                     <dl class="frm-dl">
                         <dd class="icon-list-arrow icon-pic icon-app-manage">应用管理</dd>
-                        <dd class="icon-list-arrow icon-pic icon-time-manage" id='time-manager-btn'>时间管理</dd>
-                        <dd class="icon-list-arrow icon-pic icon-blank" id='black-list-btn'>上面黑名单</dd>
+                        <dd class="icon-list-arrow icon-pic icon-time-manage" id='time-manager-btn'><a class='no-style-a col66' href="#baby-time-list" title="">时间管理</a></dd>
+                        <dd class="icon-list-arrow icon-pic icon-blank" id='black-list-btn'><a href="#black-list" title="" class='no-style-a col66'>上网黑名单</a></dd>
                     </dl>
                     <dl class="frm-dl">
-                        <dd class="icon-list-arrow icon-pic icon-net-client" id='internet-device-btn'>上网终端</dd>
+                        <dd class="icon-list-arrow icon-pic icon-net-client" id='internet-device-btn'><a href="#baby-device-remove" class="no-style-a col66" title="">上网终端</a></dd>
                     </dl>
-                    <div class="item-list item-list-txt sec-fir-list tc hTop colBlue">切换账号</div>
+                    <div class="item-list item-list-txt sec-fir-list tc hTop colBlue"><a class="no-style-a colblue" href="#baby-list" title="">切换账号</a></div>
 
-                    <div class="item-list item-list-txt tc colRed">删除账号</div>
+                    <div id='del-baby-btn' class="item-list item-list-txt tc colRed">删除账号</div>
                 </div>
             </div>
         </div>
@@ -437,7 +437,6 @@
             <header class="bar bar-nav">
                 <a class="icon icon-left pull-left back"></a>
                 <h1 class="title">黑名单</h1>
-                
             </header>
             <div class="content">
                     <div class="buttons-tab">
@@ -504,7 +503,7 @@
                     </div>
             </div>
         </div>
-        <div class="page" id='baby-list'>
+        <div class="page " id='baby-list'>
             <header class="bar bar-nav">
                 <a class="icon icon-left pull-left back"></a>
                 <a href="#baby-add" class="icon pull-right guild-word">添加</a>
@@ -513,32 +512,30 @@
             <div class="content">
                 <div class="list-block media-list">
                     <ul>
-                        <li>
-                          <label class="label-checkbox item-content">
-                            <div class="device-icon icon-mob"></div>
-                            <div class="item-inner">
-                              
-                              <div class="item-dev-title">我的手机</div>
-                            </div>
-                             <input type="checkbox" name="checkbox">
-                            <div class="item-media"><span class="list-action linearBtn">移除</span></div>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="label-checkbox item-content">
-                            <div class="device-icon icon-mob"></div>
-                            <div class="item-inner">
-                              
-                              <div class="item-dev-title">媳妇的手机</div>
-                            </div>
-                             <input type="checkbox" name="checkbox">
-                            <div class="item-media"><span class="list-action linearBtn">移除</span></div>
-                          </label>
-                        </li>
-
-                       
-                      </ul>
-                    </div>
+                    <li>
+                      <a class="item-link item-content">
+                       <div class="item-media "><img class="baby-list-img" src="./images/sex-boy.png" /></div>
+                       <div class="item-inner">
+                          <div class="item-title-row">
+                            <div class="item-title">宝贝别哭</div>
+                          </div>
+                          <div class="item-subtitle">小学一年级</div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="item-link item-content">
+                        <div class="item-media "><img class="baby-list-img" src="./images/sex-girl.png" /></div>
+                       <div class="item-inner">
+                          <div class="item-title-row">
+                            <div class="item-title">宝贝萌萌</div>
+                          </div>
+                          <div class="item-subtitle">年级未知</div>
+                        </div>
+                      </a>
+                    </li>
+                    </ul>
+                </div>
             </div>
         </div>
 </div>

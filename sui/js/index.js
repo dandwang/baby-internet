@@ -1,45 +1,81 @@
 $(function(){
     'use strict';
-	
-    
+	var global_info={};
+    /****首页构建**/   
+       var main_page_build={
+           init:function(){
+               var main_slip = Slip(document.getElementById('main_page_content'), 'x');
+               main_slip.webapp(document.querySelectorAll('.swipe-box'));
+               $(".bottom-bar").find('a').on('click',function(){
+                  main_slip.jump($(this).index());
+               });
+
+               main_slip.end(function(){
+                   var do_lists=[['bottom-bar-use','use'],['bottom-bar-analysis','analysis'],['bottom-bar-manage','manage']];
+                   var bottom_bar=$('.bottom-bar');
+                   bottom_bar.find('.tab-item').removeClass('active');
+                   $(do_lists).each(function(){
+                      $('#'+this[0]).find('.icon-d').removeClass(this[1]+'-a').addClass(this[1]);
+                   })
+                   $('#'+do_lists[this.page][0]).addClass('active').find('.icon-d').addClass(do_lists[this.page][1]+'-a');
+               })
+               var page1_list=$('#main_page_1').height()-$("#main_page_1_top").height();
+               if($('#use-app-list').height()>page1_list){
+                   $('#use-app-list').height(page1_list);
+               }
+               $(".panel_add_baby").on('click',function(){
+                    $.closePanel(function(){$.router.load("#baby-add")});
+                    // $.router.load('#baby_add');
+               })
+               
+               $('#del-baby-btn').on('click',function(){
+                   $.confirm('是否删除当前账号?',function(){
+                       /**删除账号*/
+                       alert(1);
+                   })
+               })
+               this.page_one_poll();
+           },
+           page_one_poll:function(){
+            var time =global_info.now_child.online_time;
+            $('#clock_show_data').html(time);
+           },
+
+       }
+       // $('.analysis-result-list').scroller({type:'js'});
+
+   /**获取儿童初始化数据*/
+ //  $.post('/app/child_mode/child_mode_info_get.cgi',{},function(data){
+        global_info.child_list=[];
+       var data=[{
+            id:1,
+            name:'wang',
+            sex:'nan',
+            age:'15',
+            online_time:'12',
+            time_status:'2',      
+            dev_list:[{
+                host_name:'aaa',
+                mac:'255.255',
+                os_type:'leixin',
+                is_online:'1',
+                remain_time:'10'
+            }]}
+        ];
+
+        global_info.child_list=data;
+        if(global_info.child_list.length > 0){
+            $.router.load("#sec-app-use");
+            global_info.now_child=data[0];
+            main_page_build.init();
+        }else{
+             $.router.load("#item-content-null");
+        }
+  // })
    
     $.init();
 
- /****首页切换**/   
-    var main_slip = Slip(document.getElementById('main_page_content'), 'x');
-    main_slip.webapp(document.querySelectorAll('.swipe-box'));
-    $(".bottom-bar").find('a').on('click',function(){
-       main_slip.jump($(this).index());
-    });
-
-    main_slip.end(function(){
-        var do_lists=[['bottom-bar-use','use'],['bottom-bar-analysis','analysis'],['bottom-bar-manage','manage']];
-        var bottom_bar=$('.bottom-bar');
-        bottom_bar.find('.tab-item').removeClass('active');
-        $(do_lists).each(function(){
-           $('#'+this[0]).find('.icon-d').removeClass(this[1]+'-a').addClass(this[1]);
-        })
-        $('#'+do_lists[this.page][0]).addClass('active').find('.icon-d').addClass(do_lists[this.page][1]+'-a');
-    })
-    var page1_list=$('#main_page_1').height()-$("#main_page_1_top").height();
-    console.log(page1_list);
-    if($('#use-app-list').height()>page1_list){
-        $('#use-app-list').height(page1_list);
-    }
-    $(".panel_add_baby").on('click',function(){
-         $.closePanel(function(){$.router.load("#baby-add")});
-         // $.router.load('#baby_add');
-    })
-    $('#time-manager-btn').on('click',function(){
-        $.router.load("#baby-time-list");
-    })
-    $('#black-list-btn').on('click',function(){
-        $.router.load("#black-list");
-    })
-    $('#internet-device-btn').on('click',function(){
-        $.router.load("#baby-device-remove");
-    })
-    // $('.analysis-result-list').scroller({type:'js'});
+ 
 
 /***********分析页***/    
     //创建分析页canvas

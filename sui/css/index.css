@@ -15,9 +15,13 @@ h3{font-weight: 400;}
 .col66 {
     color: #666;
 }
+.colblue{
+    color:#4281d5;
+}
 .class_color{
     color: #c2d2ef !important;
 }
+.no-style-a{width: 100%;height: 100%;display: block;}
 .border-bottom{border-bottom: 1px solid #cfcfcf;}
 .myTimeFontTxt{font-family:myTimeFont;font-size:50px;font-size:2.5rem}
 .is-null-sec{
@@ -567,3 +571,4 @@ h3{font-weight: 400;}
     border-radius: 45px;
 }
 .list-block .item-subtitle{color: #999;}
+.baby-list-img{width: 2.5rem;}
