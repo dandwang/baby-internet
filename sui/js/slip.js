@@ -10,7 +10,7 @@
   RIGHT = "right";
   UP = "up";
   DOWN = "down";
-  MIN_ALLOW_DISTANCE = 10;
+  MIN_ALLOW_DISTANCE = 50;
   MAX_OPP_ALLOW_DISTANCE = 40;
   CSS_PREFIX_MAP = ["webkit", "moz", "ms", "o", ""];
   NUMBER_REG = /\-?[0-9]+\.?[0-9]*/g;

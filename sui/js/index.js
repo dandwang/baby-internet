@@ -36,9 +36,88 @@ $(function(){
                })
                this.page_one_poll();
            },
-           page_one_poll:function(){
-            var time =global_info.now_child.online_time;
-            $('#clock_show_data').html(time);
+            page_one_poll:function(){
+                var time =parseInt(global_info.now_child.online_time);
+                var dev_list =global_info.dev_list;
+                var time_status=global_info.time_status;
+                if(time<60){
+                time='00:'+time;
+                }else{
+                time = parseInt(time/60)+':'+parseInt(time%60);
+                }
+                $('#clock_show_data').html(time);
+
+                this.page_one_limit_list(global_info.now_child.time_status,global_info.now_child.dev_list);
+                this.page_one_use_list(global_info.now_child.dev_list);
+                
+           },
+           page_one_limit_list:function(status,lists){
+                var total_div= $("#divice_limit_list div");
+                total_div.addClass('hide');
+
+                total_div.each(function(){
+                    var _this=$(this)
+                    if(status==0){
+                        if (_this.hasClass('no-limit')) {
+                            _this.removeClass('hide');
+                        }
+                    }else if(status==1){
+                        if(_this.hasClass('limit-lists')){
+                            _this.removeClass('hide');
+                            for(var i=0;i<lists.length;i++){
+                                if(lists[i].remain_time){
+                                    var type;
+                                    if(lists[i].os_type=='0'){
+                                        type ='mob';
+                                    }else if(lists[i].os_type=='1'){
+                                        type ='pc';
+                                    }else if(lists[i].os_type=='2'){
+                                        type ='iPad';
+                                    }
+                                var time =parseInt(lists[i].remain_time);
+                                if(time<=60){
+                                    time =time+'m'
+                                }else{
+                                    time =parseInt(time/60)+'h '+parseInt(time%60)+'m';
+                                }
+                                var _li="<li class='limit-lists-"+type+"'><span class='limit-list-png pic-"+type+"'></span><span class='limit-list-time'>"+time+"</span></li>";
+                                    $('.limit-lists ul').append(_li);
+                                }
+                            }
+                        }
+                    }else if(status ==2){
+                        if(_this.hasClass('now-no-limit')){
+                            _this.removeClass('hide');
+                        }
+                    }else if(status ==3){
+                        if(_this.hasClass('now-limit')){
+                            _this.removeClass('hide');
+                        }
+                    }
+                })
+           },
+           page_one_use_list:function(lists){
+               $('.using-device-list a').addClass('hide');
+               for(var i=0;i<lists.length;i++){
+                if(lists[i].is_online=='1'){
+                   $('.using-device-list a').each(function(){
+                        var _this=$(this);
+                        if(lists[i].os_type=='0'){
+                            if(_this.hasClass('pic-mob')){
+                                _this.removeClass('hide')
+                            }
+                        }else if(lists[i].os_type=='1'){
+                            if(_this.hasClass('pic-pc')){
+                                _this.removeClass('hide')
+                            }
+                        }else if(lists[i].os_type=='2'){
+                            if(_this.hasClass('pic-iPad')){
+                                _this.removeClass('hide')
+                            }
+                        }
+                   })
+                }
+               }
            },
 
        }
@@ -53,14 +132,21 @@ $(function(){
             sex:'nan',
             age:'15',
             online_time:'12',
-            time_status:'2',      
+            time_status:'1',      
             dev_list:[{
                 host_name:'aaa',
                 mac:'255.255',
-                os_type:'leixin',
+                os_type:'1',
                 is_online:'1',
                 remain_time:'10'
-            }]}
+            },{
+                host_name:'aaa',
+                mac:'255.255',
+                os_type:'2',
+                is_online:'0',
+                remain_time:'101'
+            }
+            ]}
         ];
 
         global_info.child_list=data;

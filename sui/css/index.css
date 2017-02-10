@@ -21,6 +21,7 @@ h3{font-weight: 400;}
 .class_color{
     color: #c2d2ef !important;
 }
+.limit-lists{max-height: 110px;overflow: auto}
 .no-style-a{width: 100%;height: 100%;display: block;}
 .border-bottom{border-bottom: 1px solid #cfcfcf;}
 .myTimeFontTxt{font-family:myTimeFont;font-size:50px;font-size:2.5rem}
@@ -139,7 +140,7 @@ h3{font-weight: 400;}
     -webkit-box-flex: 2;
     -ms-flex: 2;
     flex: 2;
-    padding-top:1rem; 
+    padding:1rem 0 0 1rem; 
 }
 .use-info-title {
     padding-left: 60px;
